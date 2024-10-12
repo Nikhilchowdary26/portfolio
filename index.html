@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://kit.fontawesome.com/2a87fa0d5b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -13,13 +14,15 @@
         <div class="container">
             <nav>
                 <img src="images/logo.png" class="logo" />
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <!-- <li><a href="#">Experiences</a></li> -->
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-x" onclick="closemenu()"></i>
                 </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>Full Stack Developer</p>
@@ -81,29 +84,81 @@
     <!-------------Projects----------->
     <div id="projects">
         <div class="container">
-            <div class="sub-title">Projects</div>
+            <div class="sub-title">My Work</div>
             <div class="projects-list">
                 <div class="project">
                     <img src="images/seaog.png" />
-                    <h2>SEAOG</h2>
-                    <p>Worked for UI in new version and backend for old version</p>
-                    <a href="#">learn more</a>
+                    <div class="layer">
+                        <h3>SEAOG</h3>
+                        <p>Worked for UI in new version and backend for old version</p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #74C0FC;"></i></a>
+                    </div>
                 </div>
                 <div class="project">
-                    <img src="images/mail.png" />
-                    <h2>Mail</h2>
-                    <p>A full stack web apllication having basic functionality like sending and receiving mails,Starred
-                        mails and delete mails</p>
-                    <a href="#">learn more</a>
+                    <img src="images/mail.jpeg" />
+                    <div class="layer">
+                        <h3>Mail</h3>
+                        <p>A full stack web apllication having basic functionality like sending and receiving
+                            mails,Starred
+                            mails and delete mails
+                        </p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #74C0FC;"></i></a>
+                    </div>
                 </div>
                 <div class="project">
                     <img src="images/railways.jpg" />
-                    <h2>Improving Safety in Railways </h2>
-                    <p>My B.Tech project to automate the emergency windows open, water sprinkling,engine stopping and to
-                        send alert messages to the emergency contacts.</p>
-                    <a href="#">learn more</a>
+                    <div class="layer">
+                        <h3>Improving Safety in Railways </h3>
+                        <p>My B.Tech project to automate the emergency windows open, water sprinkling,engine stopping
+                            and to
+                            send alert messages to the emergency contacts.
+                        </p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #74C0FC;"></i></a>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="images/spark.png" />
+                    <div class="layer">
+                        <h2>SPARK</h2>
+                        <p>My X organization own product it is a ticketing tool, worked for the ui role in this project.
+                        </p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square" style="color: #74C0FC;"></i></a>
+                    </div>
                 </div>
             </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+    </div>
+
+    <!-- -------------contact------------- -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>nikhilsaimandava26@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>7659041897</p>
+                    <div class="social-icons">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="images/My_CV.pdf" download class="btn btn-2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required />
+                        <input type="email" name="Email" placeholder="Your Email" required />
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn-2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024 - present Nikhil.</p>
         </div>
     </div>
     <script>
@@ -120,6 +175,35 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add('active-tab');
         }
+    </script>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz4vvbmylpxwwUvOq17NDt72z8Z4c_Xw571VCAictYOb2akAtAMAS8VsBvl5JOuMrIR/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully";
+                    setTimeout(function () {
+                        msg.innerHTML = "";
+                    }, 5000);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
     </script>
 </body>
 
