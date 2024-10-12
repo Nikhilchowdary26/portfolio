@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo" />
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <!-- <li><a href="#">Experiences</a></li> -->
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Full Stack Developer</p>
+                <h1>Hi, I am <span>Nikhil</span> from India</h1>
+            </div>
+        </div>
+    </div>
+    <!--About-->
+    <div id="about">
+        <div class="contatiner">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/My_Pic.jpg" />
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Passionate software developer with 1 year of experience in full-stack development, specializing
+                        in Java
+                        and modern web technologies. Excited to make valuable contributions to impactful projects and
+                        continuously
+                        enhance technical skills in Java and related frameworks. Motivated to take on increasingly
+                        responsible roles and
+                        grow into a senior Java developer, leading critical projects that drive the company's strategic
+                        success while
+                        fueling professional development.
+                    </p>
+                    <div class="tab-titles">
+                        <p class='tab-links active-link' onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Java</span><br>Develop core java applications</li>
+                            <li><span>Spring boot</span><br>Develop rest apis and swagger file</li>
+                            <li><span>Node js</span></li>
+                            <li><span>React</span><br>Able to work with Angular and Vue</li>
+                            <li><span>SQL</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>August,2023 - September,2024</span><br>Software Engineer at Buildbot Technologies
+                                Pvt Ltd</li>
+                            <li><span>2022-2023</span><br>Trained in Jspyders</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2018-2023</span><br>B.Tech in Kallam Haranadha Reddy Institute Of Technology</li>
+                            <li><span>2016-2018</span><br>Intermediate in Sri Chaitanya Junior College</li>
+                            <li><span>2015-2016</span><br>SSC in BHASHYAM English Medium High School</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------Projects----------->
+    <div id="projects">
+        <div class="container">
+            <div class="sub-title">Projects</div>
+            <div class="projects-list">
+                <div class="project">
+                    <img src="images/seaog.png" />
+                    <h2>SEAOG</h2>
+                    <p>Worked for UI in new version and backend for old version</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div class="project">
+                    <img src="images/mail.png" />
+                    <h2>Mail</h2>
+                    <p>A full stack web apllication having basic functionality like sending and receiving mails,Starred
+                        mails and delete mails</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div class="project">
+                    <img src="images/railways.jpg" />
+                    <h2>Improving Safety in Railways </h2>
+                    <p>My B.Tech project to automate the emergency windows open, water sprinkling,engine stopping and to
+                        send alert messages to the emergency contacts.</p>
+                    <a href="#">learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add('active-tab');
+        }
+    </script>
+</body>
+
+</html>
