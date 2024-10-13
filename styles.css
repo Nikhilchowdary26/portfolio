@@ -447,3 +447,32 @@ nav .fa-solid {
     margin-top: -40px;
     display: block;
 }
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    /* Distance from the bottom */
+    right: 20px;
+    /* Distance from the right */
+    background-color: #ff004f;
+    /* Button background color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    /* Make it round */
+    text-align: center;
+    font-size: 20px;
+    display: none;
+    /* Initially hidden */
+    cursor: pointer;
+    z-index: 100;
+    /* Make sure it's above other content */
+    transition: opacity 0.3s ease;
+    /* Smooth transition */
+}
+
+.scroll-to-top:hover {
+    background-color: #e60046;
+    /* Darker hover state */
+}

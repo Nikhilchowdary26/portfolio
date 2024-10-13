@@ -19,6 +19,7 @@
                     <li><a href="#about">About</a></li>
                     <!-- <li><a href="#">Experiences</a></li> -->
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <i class="fa-solid fa-x" onclick="closemenu()"></i>
                 </ul>
@@ -161,6 +162,10 @@
             <p>Copyright © 2024 - present Nikhil.</p>
         </div>
     </div>
+
+    <a href="#" class="scroll-to-top" id="scrollToTopBtn">
+        <i class=" fa-solid fa-arrow-up"></i>
+    </a>
     <script>
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
@@ -204,6 +209,26 @@
                 })
                 .catch(error => console.error('Error!', error.message))
         })
+    </script>
+    <script>
+        // Show or hide the scroll-to-top button based on scroll position
+        window.onscroll = function () { scrollFunction(); };
+
+        function scrollFunction() {
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.style.display = "block"; // Show button when user scrolls down
+            } else {
+                scrollToTopBtn.style.display = "none"; // Hide button when user is at the top
+            }
+        }
+
+        // Scroll to the top when the user clicks the button
+        document.getElementById("scrollToTopBtn").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
+        });
     </script>
 </body>
 
