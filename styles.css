@@ -339,15 +339,36 @@ nav .fa-solid {
 
 @media only screen and (max-width: 600px) {
     #header {
-        background-image: none;
-        /* object-fit: cover;
-        margin-right: 20px;
-        background-size: cover; */
+        position: relative;
+        background-image: url(images/mobile-background.png);
+        background-position: center;
+        background-size: 450px 750px;
+    }
+
+    /* Add overlay using ::before */
+    #header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Adjust the opacity here */
+        z-index: 1;
     }
 
     .header-text {
         margin-top: 100%;
         font-size: 16px;
+        position: relative;
+        z-index: 1;
+        /* Make sure text is above the overlay */
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
     }
 
     .header-text h1 {
