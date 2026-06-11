@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil | DevOps & Cloud Engineer Portfolio</title>
+    <title>Nikhil | DevOps &amp; Cloud Engineer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -64,10 +64,53 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
+        /* Attractive, Responsive Text-Based Logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Modern dynamic geometric N icon wrapper */
+        .logo-icon-box {
+            background: var(--gradient);
+            width: 40px;
             height: 40px;
-            width: auto;
-            object-fit: contain;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            flex-shrink: 0;
+            /* Prevents shrinking on tiny mobile displays */
+        }
+
+        .logo-icon-box span {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* Clean typographic text mark next to icon */
+        .logo-text {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .logo-text span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         #sidemenu {
@@ -577,6 +620,22 @@
                 display: block;
             }
 
+            /* Responsive design adjustments for mobile header logo */
+            .logo-text {
+                font-size: 1.15rem;
+                /* Marginally scales down text sizing so it fits screen width perfectly */
+            }
+
+            .logo-icon-box {
+                width: 35px;
+                height: 35px;
+                border-radius: 9px;
+            }
+
+            .logo-icon-box span {
+                font-size: 1.2rem;
+            }
+
             #sidemenu {
                 position: fixed;
                 top: 0;
@@ -619,7 +678,13 @@
 <body>
 
     <nav>
-        <img src="images/logo.png" class="logo" alt="Logo" />
+        <a href="#header" class="logo-container">
+            <div class="logo-icon-box">
+                <span>N</span>
+            </div>
+            <div class="logo-text">Nikhil<span>.Dev</span></div>
+        </a>
+
         <ul id="sidemenu">
             <li><a href="#header" onclick="closemenu()">Home</a></li>
             <li><a href="#about" onclick="closemenu()">About</a></li>
@@ -877,7 +942,6 @@
         };
 
         // Google Sheets Form Post Engine Integration API
-        // REPLACE THIS URL with your real Google Script Web App URL to receive live messages
         const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
         const form = document.getElementById('sheetForm');
         const msg = document.getElementById("msg");
