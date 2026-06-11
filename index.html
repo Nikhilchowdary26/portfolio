@@ -4,48 +4,659 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil | DevOps &amp; Cloud Engineer Portfolio</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <title>Nikhil | DevOps & Cloud Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://kit.fontawesome.com/2a87fa0d5b.js" crossorigin="anonymous"></script>
     <link rel='icon' href="images/N_Logo.jpeg" />
+
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-surface: #111827;
+            --bg-card: rgba(31, 41, 55, 0.4);
+            --border-color: rgba(255, 255, 255, 0.06);
+            --accent-glow: #6366f1;
+            --accent-primary: #38bdf8;
+            --accent-secondary: #818cf8;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --gradient: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Container Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Trendy Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 10%;
+            background: rgba(9, 13, 22, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        #sidemenu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        #sidemenu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        #sidemenu a:hover {
+            color: var(--accent-primary);
+        }
+
+        .menu-icon,
+        .close-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Generic Section Heading */
+        .sub-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .sub-title span,
+        h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        #header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+        }
+
+        .header-text {
+            max-width: 750px;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .header-text h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* UI Interactive Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 2.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .primary-btn {
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+        }
+
+        .secondary-btn {
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            color: var(--accent-primary);
+            background: transparent;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(56, 189, 248, 0.08);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        #about {
+            padding: 8rem 0;
+            background-color: var(--bg-surface);
+        }
+
+        .about-row {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .img-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .img-frame img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .img-frame:hover img {
+            transform: scale(1.04);
+        }
+
+        .about-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Interactive Profile Tabs */
+        .tab-titles {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        .tab-links {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-links:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-links.active-link {
+            color: var(--accent-primary);
+        }
+
+        .tab-links.active-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            left: 0;
+            bottom: -13px;
+            border-radius: 2px;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .tab-contents ul {
+            list-style: none;
+        }
+
+        .tab-contents ul li {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tab-contents ul li span {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: inline-block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Projects Grid Section */
+        #projects {
+            padding: 8rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .project-img-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-meta {
+            padding: 1.75rem;
+        }
+
+        .project-meta h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-meta p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .project-card:hover .project-link {
+            background: var(--gradient);
+            color: #fff;
+        }
+
+        .center-wrapper {
+            text-align: center;
+        }
+
+        /* Certifications Status Panel */
+        #certifications {
+            padding: 8rem 0;
+            background-color: var(--bg-surface);
+        }
+
+        .coming-soon-card {
+            background: var(--bg-card);
+            border: 1px dashed rgba(99, 102, 241, 0.3);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(8px);
+        }
+
+        .coming-soon-card i {
+            font-size: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 8rem 0 4rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+        }
+
+        .contact-left h1 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-intent {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-info-item i {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
+            width: 24px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 1.25rem;
+            margin: 2.5rem 0;
+        }
+
+        .social-row a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-row a:hover {
+            color: #fff;
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        /* Form styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1.1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        #msg {
+            color: #34d399;
+            margin-top: 1rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer-divider {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Back to top feature */
+        .scroll-top {
+            position: fixed;
+            bottom: -60px;
+            right: 30px;
+            width: 46px;
+            height: 46px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            z-index: 99;
+            transition: bottom 0.4s ease, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .scroll-top.visible {
+            bottom: 30px;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.08);
+        }
+
+        /* Screen Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile & Tablet Responsiveness */
+        @media (max-width: 992px) {
+
+            .about-row,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+
+            .header-text h1 {
+                font-size: 3.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            #sidemenu {
+                position: fixed;
+                top: 0;
+                right: -250px;
+                width: 250px;
+                height: 100vh;
+                background: #0d1321;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 5rem 2.5rem;
+                gap: 2rem;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+                z-index: 1001;
+            }
+
+            .close-icon {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 2rem;
+            }
+
+            .header-text h1 {
+                font-size: 2.75rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .tab-titles {
+                gap: 1.25rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="header">
+
+    <nav>
+        <img src="images/logo.png" class="logo" alt="Logo" />
+        <ul id="sidemenu">
+            <li><a href="#header" onclick="closemenu()">Home</a></li>
+            <li><a href="#about" onclick="closemenu()">About</a></li>
+            <li><a href="#projects" onclick="closemenu()">Projects</a></li>
+            <li><a href="#certifications" onclick="closemenu()">Certifications</a></li>
+            <li><a href="#contact" onclick="closemenu()">Contact</a></li>
+            <i class="fa-solid fa-xmark close-icon" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars menu-icon" onclick="openmenu()"></i>
+    </nav>
+
+    <section id="header">
         <div class="container">
-            <nav>
-                <img src="images/logo.png" class="logo" alt="Logo" />
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fa-solid fa-xmark close-icon" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars menu-icon" onclick="openmenu()"></i>
-            </nav>
             <div class="header-text">
                 <p class="hero-subtitle">Architecture &amp; Automation</p>
                 <h1>Hi, I am <span>Nikhil</span><br>from India</h1>
                 <p class="hero-tagline">Software Engineer specializing in backend ecosystem scale, transitioning into
                     DevOps &amp; Cloud Infrastructure.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#contact" class="btn primary-btn">Get In Touch <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="images/Nikhil_Java_Developer_Resume.pdf" download class="btn secondary-btn">Download Resume
+                        <i class="fa-solid fa-download"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="about">
+    <section id="about">
         <div class="container">
-            <div class="row">
+            <div class="about-row">
                 <div class="about-col-1">
                     <div class="img-frame">
                         <img src="images/My_Pic.jpg" alt="Nikhil's Profile Picture" />
                     </div>
                 </div>
                 <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
+                    <h2 class="sub-title">About <span>Me</span></h2>
                     <p class="about-desc">
                         Result-driven Software Engineer with nearly 3 years of hands-on experience designing and scaling
                         full-stack applications using <strong>Java, Spring Boot, and Microservices
@@ -55,11 +666,13 @@
                         background to build automated CI/CD pipelines, optimize cloud deployments, and architect highly
                         resilient, scalable infrastructure.
                     </p>
+
                     <div class="tab-titles">
-                        <p class='tab-links active-link' onclick="opentab('skills')">Expertise</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class='tab-links active-link' onclick="opentab('skills', this)">Expertise</p>
+                        <p class="tab-links" onclick="opentab('experience', this)">Experience</p>
+                        <p class="tab-links" onclick="opentab('education', this)">Education</p>
                     </div>
+
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
                             <li><span>Java &amp; Spring Boot</span><br>Microservices, Rest APIs, Swagger, and Enterprise
@@ -74,6 +687,7 @@
                                 workflows</li>
                         </ul>
                     </div>
+
                     <div class="tab-contents" id="experience">
                         <ul>
                             <li><span>January, 2025 - Present</span><br>Software Engineer at HCLTech Limited</li>
@@ -82,6 +696,7 @@
                             <li><span>2022 - 2023</span><br>Trained in Jspyders</li>
                         </ul>
                     </div>
+
                     <div class="tab-contents" id="education">
                         <ul>
                             <li><span>2018 - 2023</span><br>B.Tech in Kallam Haranadha Reddy Institute Of Technology
@@ -93,113 +708,206 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="projects">
+    <section id="projects">
         <div class="container">
-            <h1 class="sub-title">Featured Work</h1>
-            <div class="projects-list">
-                <div class="project">
-                    <img src="images/seaog.png" alt="SEAOG Project" />
-                    <div class="layer">
+            <h2 class="sub-title">Featured <span>Work</span></h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/seaog.png" alt="SEAOG Project" />
+                    </div>
+                    <div class="project-meta">
                         <h3>SEAOG</h3>
                         <p>Optimized user interface features for modernized web systems while engineering robust legacy
                             backend processes.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
-                <div class="project">
-                    <img src="images/mail.jpeg" alt="Mail Project" />
-                    <div class="layer">
+
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/mail.jpeg" alt="Mail Project" />
+                    </div>
+                    <div class="project-meta">
                         <h3>Mail Service System</h3>
                         <p>A full-stack, distributed web application featuring atomic mailing actions, custom tagging,
                             and secure data storage operations.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
-                <div class="project">
-                    <img src="images/railways.jpg" alt="Railway Safety Project" />
-                    <div class="layer">
+
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/railways.jpg" alt="Railway Safety Project" />
+                    </div>
+                    <div class="project-meta">
                         <h3>Automated Railway Safety</h3>
                         <p>B.Tech IoT architecture automating emergency system responses and integrating remote contact
                             notification services.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
-                <div class="project">
-                    <img src="images/spark.png" alt="Spark Project" />
-                    <div class="layer">
+
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/spark.png" alt="Spark Project" />
+                    </div>
+                    <div class="project-meta">
                         <h3>SPARK</h3>
                         <p>An enterprise-level ticketing workspace tool where I drove user interface enhancements and
                             layout architecture updates.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
-            </div>
-            <a href="#" class="btn view-more-btn">Explore More Projects</a>
-        </div>
-    </div>
 
-    <div id="certifications">
-        <div class="container">
-            <h1 class="sub-title">Milestones &amp; Credentials</h1>
-            <div class="certification-list">
-                <div class="coming-soon-box">
-                    <i class="fa-solid fa-laptop-code progress-icon"></i>
-                    <h3 class="temp-matter">DevOps &amp; Cloud Certifications Underway</h3>
-                    <p>New credentials are being processed. Check back soon!</p>
-                </div>
+            </div>
+            <div class="center-wrapper">
+                <a href="#" class="btn secondary-btn">Explore More Projects</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="contact">
+    <section id="certifications">
         <div class="container">
-            <div class="row">
+            <h2 class="sub-title">Milestones &amp; <span>Credentials</span></h2>
+            <div class="coming-soon-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>DevOps &amp; Cloud Certifications Underway</h3>
+                <p>New credentials are currently being processed and verified. Check back soon!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
                 <div class="contact-left">
-                    <h1 class="sub-title">Let's Connect</h1>
+                    <h2 class="sub-title">Let's <span>Connect</span></h2>
                     <p class="contact-intent">Looking to expand engineering capabilities or automate deployment
                         lifecycles? Reach out directly.</p>
-                    <p><i class="fa-solid fa-envelope"></i> nikhilsaimandava26@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i> +91 7659041897</p>
-                    <div class="social-icons">
-                        <a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>nikhilsaimandava26@gmail.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 7659041897</span>
+                    </div>
+
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/in/nikhil-sai-m/" target="_blank"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
                         <a href="https://medium.com/@nikhilsaimandava26" target="_blank"><i
                                 class="fa-brands fa-medium"></i></a>
-                        <a href="https://www.linkedin.com/in/nikhil-sai-m/" target="_blank"><i
-                                class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
-                    <a href="images/Nikhil_Java_Developer_Resume.pdf" download class="btn download-btn">Download Resume
-                        <i class="fa-solid fa-download" style="margin-left: 8px;"></i></a>
+
+                    <a href="images/Nikhil_Java_Developer_Resume.pdf" download class="btn primary-btn">Download Resume
+                        <i class="fa-solid fa-download"></i></a>
                 </div>
+
                 <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <div class="input-group">
+                    <form name="submit-to-google-sheet" class="contact-form" id="sheetForm">
+                        <div class="input-wrapper">
                             <input type="text" name="Name" placeholder="Your Name" required />
                         </div>
-                        <div class="input-group">
+                        <div class="input-wrapper">
                             <input type="email" name="Email" placeholder="Your Email" required />
                         </div>
-                        <div class="input-group">
+                        <div class="input-wrapper">
                             <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn submit-btn">Send Message <i class="fa-solid fa-paper-plane"
-                                style="margin-left: 8px;"></i></button>
+                        <button type="submit" class="btn primary-btn" style="justify-content: center;">Send Message <i
+                                class="fa-solid fa-paper-plane"></i></button>
                     </form>
                     <span id="msg"></span>
                 </div>
             </div>
-        </div>
-        <div class="copyright">
-            <p>© 2026 Nikhil Mandava. Handcrafted with passion.</p>
-        </div>
-    </div>
 
-    <a href="#" class="scroll-to-top" id="scrollToTopBtn">
+            <div class="footer-divider">
+                <p>© 2026 Nikhil Mandava. Handcrafted with passion.</p>
+                <p>Architecture & Infrastructure</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="#header" class="scroll-top" id="scrollTopBtn">
         <i class="fa-solid fa-chevron-up"></i>
     </a>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Sidebar Management logic
+        const sidemenu = document.getElementById("sidemenu");
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-250px";
+        }
+
+        // Skill/Education/Experience Tab Switching Engine
+        function opentab(tabName, clickedTab) {
+            const tabLinks = document.getElementsByClassName("tab-links");
+            const tabContents = document.getElementsByClassName("tab-contents");
+
+            for (let link of tabLinks) {
+                link.classList.remove("active-link");
+            }
+            for (let content of tabContents) {
+                content.classList.remove("active-tab");
+            }
+
+            clickedTab.classList.add("active-link");
+            document.getElementById(tabName).classList.add("active-tab");
+        }
+
+        // Sticky Back-to-Top Button visibility profile
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                scrollTopBtn.classList.add("visible");
+            } else {
+                scrollTopBtn.classList.remove("visible");
+            }
+        };
+
+        // Google Sheets Form Post Engine Integration API
+        // REPLACE THIS URL with your real Google Script Web App URL to receive live messages
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+        const form = document.getElementById('sheetForm');
+        const msg = document.getElementById("msg");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            if (scriptURL === 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
+                msg.style.color = "#f43f5e";
+                msg.innerHTML = "UI looks clean! To record real data, replace 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL' in the JavaScript script block with your active deployment link.";
+                return;
+            }
+
+            msg.style.color = "#38bdf8";
+            msg.innerHTML = "Sending message...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.style.color = "#34d399";
+                    msg.innerHTML = "Success! Your message was recorded seamlessly.";
+                    setTimeout(function () { msg.innerHTML = ""; }, 5000);
+                    form.reset();
+                })
+                .catch(error => {
+                    msg.style.color = "#f43f5e";
+                    msg.innerHTML = "Error processing data pipeline connection.";
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
 </body>
 
 </html>
