@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil | Full Stack Developer Portfolio</title>
+    <title>Nikhil | DevOps &amp; Cloud Engineer Portfolio</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/2a87fa0d5b.js" crossorigin="anonymous"></script>
     <link rel='icon' href="images/N_Logo.jpeg" />
 </head>
@@ -26,8 +28,10 @@
                 <i class="fa-solid fa-bars menu-icon" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p>Full Stack Developer</p>
+                <p class="hero-subtitle">Architecture &amp; Automation</p>
                 <h1>Hi, I am <span>Nikhil</span><br>from India</h1>
+                <p class="hero-tagline">Software Engineer specializing in backend ecosystem scale, transitioning into
+                    DevOps &amp; Cloud Infrastructure.</p>
             </div>
         </div>
     </div>
@@ -36,31 +40,38 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/My_Pic.jpg" alt="Nikhil's Profile Picture" />
+                    <div class="img-frame">
+                        <img src="images/My_Pic.jpg" alt="Nikhil's Profile Picture" />
+                    </div>
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>Result-driven Software Engineer with nearly 3 years of hands-on experience designing and scaling
-                        full-stack applications using Java, Spring Boot, and Microservices architecture. Having
-                        successfully engineered distributed backend systems, I am transitioning my career toward DevOps
-                        and Cloud Engineering. I specialize in bridging the gap between development and infrastructure,
-                        leveraging my strong core development background to build automated CI/CD pipelines, optimize
-                        cloud deployments, and architect highly resilient, scalable infrastructure.
+                    <p class="about-desc">
+                        Result-driven Software Engineer with nearly 3 years of hands-on experience designing and scaling
+                        full-stack applications using <strong>Java, Spring Boot, and Microservices
+                            architecture</strong>. Having successfully engineered distributed backend systems, I am
+                        transitioning my career toward <strong>DevOps and Cloud Engineering</strong>. I specialize in
+                        bridging the gap between development and infrastructure, leveraging my strong core development
+                        background to build automated CI/CD pipelines, optimize cloud deployments, and architect highly
+                        resilient, scalable infrastructure.
                     </p>
                     <div class="tab-titles">
-                        <p class='tab-links active-link' onclick="opentab('skills')">Skills</p>
+                        <p class='tab-links active-link' onclick="opentab('skills')">Expertise</p>
                         <p class="tab-links" onclick="opentab('experience')">Experience</p>
                         <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
                     <div class="tab-contents active-tab" id="skills">
                         <ul>
-                            <li><span>Java</span><br>Develop core java applications</li>
-                            <li><span>Spring Boot</span><br>Develop rest apis and swagger file</li>
-                            <li><span>Node JS</span><br>Backend application environments</li>
-                            <li><span>React</span><br>Frontend interface development</li>
-                            <li><span>SQL</span><br>Database design and querying</li>
-                            <li><span>Linux &amp; Jenkins</span><br>Deployment and CI/CD operations</li>
-                            <li><span>GIT</span><br>Version control system management</li>
+                            <li><span>Java &amp; Spring Boot</span><br>Microservices, Rest APIs, Swagger, and Enterprise
+                                Backend Systems</li>
+                            <li><span>Cloud &amp; DevOps Direction</span><br>CI/CD Automation pipelines, Cloud
+                                architecture foundations</li>
+                            <li><span>Containerization &amp; OS</span><br>Linux environments, Docker deployment
+                                strategies</li>
+                            <li><span>Modern Stack Integration</span><br>Node JS, React Frontend interfaces, SQL
+                                database tuning</li>
+                            <li><span>Automation &amp; Quality</span><br>Jenkins integration, Git version control
+                                workflows</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="experience">
@@ -86,31 +97,32 @@
 
     <div id="projects">
         <div class="container">
-            <h1 class="sub-title">My Work</h1>
+            <h1 class="sub-title">Featured Work</h1>
             <div class="projects-list">
                 <div class="project">
                     <img src="images/seaog.png" alt="SEAOG Project" />
                     <div class="layer">
                         <h3>SEAOG</h3>
-                        <p>Worked for UI in new version and backend for old version</p>
+                        <p>Optimized user interface features for modernized web systems while engineering robust legacy
+                            backend processes.</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="project">
                     <img src="images/mail.jpeg" alt="Mail Project" />
                     <div class="layer">
-                        <h3>Mail</h3>
-                        <p>A full stack web application having basic functionality like sending, receiving mails,
-                            Starred mails and delete mails, etc.</p>
+                        <h3>Mail Service System</h3>
+                        <p>A full-stack, distributed web application featuring atomic mailing actions, custom tagging,
+                            and secure data storage operations.</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="project">
                     <img src="images/railways.jpg" alt="Railway Safety Project" />
                     <div class="layer">
-                        <h3>Improving Safety in Railways</h3>
-                        <p>My B.Tech project to automate emergency window openings, water sprinkling, engine stopping,
-                            and sending emergency contact text alerts.</p>
+                        <h3>Automated Railway Safety</h3>
+                        <p>B.Tech IoT architecture automating emergency system responses and integrating remote contact
+                            notification services.</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
@@ -118,23 +130,24 @@
                     <img src="images/spark.png" alt="Spark Project" />
                     <div class="layer">
                         <h3>SPARK</h3>
-                        <p>My X organization's own ticketing tool product; owned the UI design implementation role in
-                            this project.</p>
+                        <p>An enterprise-level ticketing workspace tool where I drove user interface enhancements and
+                            layout architecture updates.</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn view-more-btn">See more</a>
+            <a href="#" class="btn view-more-btn">Explore More Projects</a>
         </div>
     </div>
 
     <div id="certifications">
         <div class="container">
-            <h1 class="sub-title">My Certifications</h1>
+            <h1 class="sub-title">Milestones &amp; Credentials</h1>
             <div class="certification-list">
                 <div class="coming-soon-box">
-                    <h3 class="temp-matter">Coming soon...</h3>
-                    <img src="images/temp_img.png" class="temp_img" alt="Placeholder graphic" />
+                    <i class="fa-solid fa-laptop-code progress-icon"></i>
+                    <h3 class="temp-matter">DevOps &amp; Cloud Certifications Underway</h3>
+                    <p>New credentials are being processed. Check back soon!</p>
                 </div>
             </div>
         </div>
@@ -144,9 +157,11 @@
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fa-solid fa-paper-plane"></i> nikhilsaimandava26@gmail.com</p>
-                    <p><i class="fa-solid fa-square-phone"></i> 7659041897</p>
+                    <h1 class="sub-title">Let's Connect</h1>
+                    <p class="contact-intent">Looking to expand engineering capabilities or automate deployment
+                        lifecycles? Reach out directly.</p>
+                    <p><i class="fa-solid fa-envelope"></i> nikhilsaimandava26@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +91 7659041897</p>
                     <div class="social-icons">
                         <a href="#" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                         <a href="https://medium.com/@nikhilsaimandava26" target="_blank"><i
@@ -154,26 +169,34 @@
                         <a href="https://www.linkedin.com/in/nikhil-sai-m/" target="_blank"><i
                                 class="fa-brands fa-linkedin"></i></a>
                     </div>
-                    <a href="images/Nikhil_Java_Developer_Resume.pdf" download class="btn btn-2">Download CV</a>
+                    <a href="images/Nikhil_Java_Developer_Resume.pdf" download class="btn download-btn">Download Resume
+                        <i class="fa-solid fa-download" style="margin-left: 8px;"></i></a>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required />
-                        <input type="email" name="Email" placeholder="Your Email" required />
-                        <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn-2">Submit</button>
+                        <div class="input-group">
+                            <input type="text" name="Name" placeholder="Your Name" required />
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="Email" placeholder="Your Email" required />
+                        </div>
+                        <div class="input-group">
+                            <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Send Message <i class="fa-solid fa-paper-plane"
+                                style="margin-left: 8px;"></i></button>
                     </form>
                     <span id="msg"></span>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>Copyright © 2024 - present Nikhil.</p>
+            <p>© 2026 Nikhil Mandava. Handcrafted with passion.</p>
         </div>
     </div>
 
     <a href="#" class="scroll-to-top" id="scrollToTopBtn">
-        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-chevron-up"></i>
     </a>
 
     <script src="script.js"></script>
